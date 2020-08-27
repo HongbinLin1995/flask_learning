@@ -21,6 +21,7 @@ def background_task(n):
     return len(n)
 
 @app.route('/task')
+@app.route('/task1')
 def add_task():
     
     if request.args.get("n"):
@@ -29,8 +30,8 @@ def add_task():
         
         return f"Task {job.id} added to queue at {job.enqueued_at}. {q_len} tasks in the queue"
     
-    return "No value for n"
+    return "No value for n :("
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
